@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<title>Q3 Seatwork 2</title>
+
+    <style>
+
+        body{
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            background-color: #e5ecf1;
+            margin: 0;
+        }
+        nav{
+            background-color: #00273d;
+            padding: 15px 0;
+            text-align: center;
+        }
+
+        .container-fluid{
+            display: flex;
+            justify-content: space-between;
+            padding: 0 40px;
+            position: relative;
+        }
+
+        .navbar-name{
+            display: block;
+            font-size: 25px;
+            font-weight: bold;
+            color: #eaeef1;
+            text-decoration: none;
+        }
+
+        .nav-links{
+            display: flex;
+            gap: 25px;
+            text-align: center;
+        }
+
+        .nav-link{
+            color: #eaeef1;
+            text-decoration: none;
+            font-size: 20px;
+        }
+
+        .nav-link:hover{
+            color: #7798af;
+            transition: 0.3s;
+        }
+
+        .actual-thing{
+            width: 100%;
+            height: 100%;
+            align-items: center;
+            text-align: center;
+            margin-top: 5rem;
+        }
+
+        h1{
+            color: #00273d;
+            font-size: 2.5rem;
+        }
+
+        p{
+            color: #15405a;
+            font-size: 2rem;
+        }
+
+        .result{
+            color: #15405a;
+            font-size: 25px;
+        }
+
+        input{
+            width: 300px; 
+            max-width: 90%;
+            text-align: center; 
+            height: 33px; 
+            font-size: 16px;
+            padding: 4.5px;
+            border-radius: 8px;
+            border: 1px solid #c2bdbd; 
+        }
+
+        button{
+            width: 250px; 
+            max-width: 90%;
+            text-align: center; 
+            height: 47px; 
+            font-size: 18px;
+            padding: 4.5px;
+            border-radius: 8px;
+            border: none;
+            background-color: #00273d;
+            color: #eaeef1;
+        }
+    </style>
+
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container-fluid">
+            <a class="navbar-name" href="generator.html">Procrastinator Pro</a>
+
+            <div class="nav-links">
+                <a class="nav-link" href="home.html">Home</a>
+                <a class="nav-link" href="generator.html">Generator</a>
+                <a class="nav-link" href="index.html">Sign Up</a>
+                <a class="nav-link" href="about.html">About</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="actual-thing">
+    <h1>Should I Do It?</h1>
+
+    <p>Ask a question!</p>
+
+    <br>
+
+    <input type="text" id="questions" placeholder="Should I sleep early tonight?">
+
+    <br> <br> <br> <br>
+
+    <button onclick="decide()">Decide</button>
+
+    <br> <br>
+
+    <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        function decide(){
+            let question = document.getElementById("questions").value;
+            
+            if(question.trim() === ""){
+            document.getElementById("result").innerHTML = "Please ask a question first!";
+            return;
+            }
+        
+            let random = Math.floor(Math.random() * 4);
+            let answer = getAnswer(random);
+
+            document.getElementById("result").innerHTML = answer;
+    }
+        
+
+        function getAnswer(num){
+
+            if(num == 0){
+            return '<img src="images/generator/yes.png" width="450">';
+            } else if(num == 1){
+            return '<img src="images/generator/no.png" width="450">' ;
+            } else if(num == 2){
+            return '<img src="images/generator/maybe.png" width="450">';
+            } else if(num == 3){
+            return '<img src="images/generator/askagain.png" width="450">';
+            } else if(num == 4){
+            return '<img src="images/generator/idk.png" width="450">';
+            } else {
+            return '<img src="images/generator/def.png" width="450">';
+            }
+        }        
+    </script>
+
+    
+</body>
+</html>
